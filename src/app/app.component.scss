@@ -1,0 +1,21 @@
+.top-menu {
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 15%);
+    background: #fff;
+    height: 80px;
+
+    .content {
+        @extend .main;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        .currency {
+            margin-left: 10px;
+        }
+    }
+}
+.main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}

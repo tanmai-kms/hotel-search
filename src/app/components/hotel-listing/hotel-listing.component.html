@@ -1,0 +1,53 @@
+
+<div *ngIf="hotels?.data" class="hotel-list">
+    <div class="hotel-item" *ngFor="let hotel of hotels.data">
+        <div class="thumbnail">
+            <img src="{{ hotel.photo }}" />
+        </div>
+        <div class="info">
+            <div class="name">{{ hotel.name }}</div>
+            <div class="stars-address">
+                <div class="stars">
+                    <div class="empty-stars"></div>
+                    <div class="full-stars" [ngStyle]="{'width': (hotel.stars / 5 * 100) + '%'}"></div>
+                </div>
+                <mat-icon>location_on</mat-icon>
+                <div class="address">{{ hotel.address }}</div>
+            </div>
+            <div *ngIf="hotel.price?.competitorPrices?.length" class="competitor-prices">
+                <div 
+                    class="competitor-price-item" 
+                    *ngFor="let price of hotel.price?.competitorPrices" 
+                    [ngClass]="{'us': price.us}">
+                    <div class="competitor-name">{{ price.name }}</div>
+                    <div class="competitor-price">{{ price.formattedPrice }}</div>
+                </div>
+            </div>
+        </div>
+        <div class="action">
+            <div class="rating"><div class="rating-value">{{ hotel.rating }}</div></div>
+            <div *ngIf="hotel.price" class="price-section">
+                <div *ngIf="hotel.price.saving" class="max-price-strikethrough">
+                    {{ hotel.price.formattedMaxPrice }}
+                </div>
+                <div class="current-price">
+                    <div class="current-price-value">{{ hotel.price.formattedPrice }}</div>
+                    <div *ngIf="hotel.price.taxesFeesText" class="taxes-fees">
+                        <mat-icon 
+                            title="{{ hotel.price.taxesFeesText }}"
+                            aria-hidden="false" 
+                            aria-label="Taxes and Fees" 
+                            matTooltip="{{ hotel.price.taxesFeesText }}">
+                            info
+                        </mat-icon>
+                    </div>
+                </div>
+                <div *ngIf="hotel.price.saving" class="saving">
+                    Saving {{ hotel.price.formattedSaving }}
+                </div>
+            </div>
+            <button *ngIf="hotel.price" mat-raised-button class="btn-book">Book</button>
+            <div *ngIf="!hotel.price" class="no-price">Rates unavailable</div>
+        </div>
+    </div>
+</div>

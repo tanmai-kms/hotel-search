@@ -1,0 +1,158 @@
+.hotel-list {
+    .hotel-item {
+        display: flex;
+        margin-bottom: 10px;
+        box-shadow: 0 2px 2px 0 rgb(0 0 0 / 12%);
+        border: 1px solid #dddfe2;
+        height: 200px;
+
+        .thumbnail img {
+            width: 280px;
+            height: 100%;
+        }
+
+        .info {
+            width: calc(100% - 450px);
+            margin-left: 10px;
+            padding-top: 10px;
+            border-right: 1px solid #dddfe2;
+
+            .name {
+                font-size: 16px;
+                font-weight: 600;
+            }
+
+            .stars-address {
+                display: flex;
+
+                .stars {
+                    position: relative;
+                    vertical-align: middle;
+                    display: inline-block;
+                    color: #b1b1b1;
+                    overflow: hidden;
+                    width: 80px;
+                    min-width: 80px;
+
+                    .full-stars {
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        color: #fde16d;
+                    }
+                    .empty-stars:before, .full-stars:before {
+                        content:"\2605\2605\2605\2605\2605";
+                        font-size: 12px;
+                        letter-spacing: 4px;
+                    }
+                    .empty-stars:before {
+                        -webkit-text-stroke: 1px #848484;
+                    }
+                    .full-stars:before {
+                        -webkit-text-stroke: 1px orange;
+                    }
+                }
+
+                .mat-icon {
+                    width: 20px;
+                    height: 20px;
+                    font-size: 20px;
+                }
+            }
+    
+            .competitor-prices {
+                height: 125px;
+                overflow: scroll;
+                margin-top: 10px;
+                margin-left: 10px;
+                margin-bottom: 10px;
+
+                .competitor-price-item {
+                    display: flex;
+                    margin-bottom: 6px;
+
+                    .competitor-name {
+                        width: 200px;
+                    }
+
+                    .competitor-price{
+                        width: 150px;
+                    }
+
+                    &.us {
+                        background: #e5e5e5;
+                    }
+                }
+            }
+        }
+
+        .action {
+            width: 200px;
+            text-align: right;
+            margin-right: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+
+            .rating {
+                display: flex;
+                width: 100%;
+                display: flex;
+                justify-content: flex-end;
+
+                .rating-value {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    background: #5392f9;
+                    color: #fff;
+                    font-weight: 600;
+                }
+            }
+
+            .price-section {
+                .max-price-strikethrough {
+                    font-size: 20px;
+                    color: gray;
+                    text-decoration: line-through;
+                }
+                .current-price {
+                    display: flex;
+                    justify-content: flex-end;
+                    .current-price-value {
+                        font-size: 20px;
+                        color: red;
+                    }
+
+                    .taxes-fees .mat-icon {
+                        height: 18px;
+                        width: 18px;
+                        font-size: 18px;
+                        margin-left: 4px;
+                    }
+                }
+
+                .saving {
+                    background: yellow;
+                }
+            }
+
+            .btn-book {
+                margin-left: 10px;
+                background-color: rgb(62, 108, 234);
+                color: #fff;
+            }
+
+            .no-price {
+                text-align: center;
+                font-size: 16px;
+                color: #db3636;
+            }
+        }
+    }
+}

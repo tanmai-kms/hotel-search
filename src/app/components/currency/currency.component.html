@@ -1,0 +1,9 @@
+<div class="select">
+    <select (change)="onCurrencyChange($event)" class="currency-switcher">
+        <option
+            *ngFor="let currencySymbol of currencySymbols"
+            [value]="currencySymbol"
+            [selected]="currencySymbol === currentCurrency"
+        >{{currencySymbol}}</option>
+    </select>
+</div>
